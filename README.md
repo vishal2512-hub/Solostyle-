@@ -30,7 +30,6 @@ A modern web application to book movie and event tickets with a sleek user inter
 
 ## 📦 Installation (For Local Development)
  Clone the repository
-git clone https://github.com/your-username/your-repo-name.git
 
 # Navigate to the project directory
 cd your-repo-name
