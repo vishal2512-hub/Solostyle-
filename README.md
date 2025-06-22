@@ -4,6 +4,7 @@ A modern web application to book movie and event tickets with a sleek user inter
 
 🚀 **Live Demo:** [glowing-seahorse-a2facf.netlify.app](https://glowing-seahorse-a2facf.netlify.app/)
 
+![Uploading image.png…]()
 
 JUST CHANGE THE DOLLAR SIGN
 ---
