@@ -79,7 +79,7 @@ const ProductCard = ({
     const remainingStars = 5 - Math.ceil(rating);
     for (let i = 0; i < remainingStars; i++) {
       stars.push(
-        <Star key={`empty-${i}`} className="h-4 w-4 text-gray-300 fill-current" />
+        <Star key={`empty-₹{i}`} className="h-4 w-4 text-gray-300 fill-current" />
       );
     }
 
@@ -88,7 +88,7 @@ const ProductCard = ({
 
   return (
     <div 
-      className={`bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden group relative ${className}`}
+      className={`bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden group relative ₹{className}`}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
@@ -109,13 +109,13 @@ const ProductCard = ({
       {/* Favorite Button */}
       <button
         onClick={handleToggleFavorite}
-        className={`absolute top-4 right-4 z-10 p-2 rounded-full transition-all duration-200 ${
+        className={`absolute top-4 right-4 z-10 p-2 rounded-full transition-all duration-200 ₹{
           isFavorite 
             ? 'bg-red-500 text-white' 
             : 'bg-white bg-opacity-80 text-gray-600 hover:bg-opacity-100'
         }`}
       >
-        <Heart className={`h-5 w-5 ${isFavorite ? 'fill-current' : ''}`} />
+        <Heart className={`h-5 w-5 ₹{isFavorite ? 'fill-current' : ''}`} />
       </button>
 
       {/* Product Image */}
@@ -123,13 +123,13 @@ const ProductCard = ({
         <img
           src={product.image}
           alt={product.name}
-          className={`w-full h-64 sm:h-72 object-cover transition-transform duration-500 ${
+          className={`w-full h-64 sm:h-72 object-cover transition-transform duration-500 ₹{
             isHovered ? 'scale-110' : 'scale-100'
           }`}
         />
         
         {/* Quick Actions Overlay */}
-        <div className={`absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center transition-opacity duration-300 ${
+        <div className={`absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center transition-opacity duration-300 ₹{
           isHovered ? 'opacity-100' : 'opacity-0'
         }`}>
           <button
@@ -169,11 +169,11 @@ const ProductCard = ({
         {/* Price */}
         <div className="flex items-center gap-2 mb-4">
           <span className="text-2xl font-bold text-gray-800">
-            ${product.price}
+            ₹{product.price}
           </span>
           {product.originalPrice && product.originalPrice > product.price && (
             <span className="text-lg text-gray-500 line-through">
-              ${product.originalPrice}
+              ₹{product.originalPrice}
             </span>
           )}
         </div>
@@ -186,13 +186,13 @@ const ProductCard = ({
               <button
                 key={index}
                 onClick={() => setSelectedColor(color)}
-                className={`w-8 h-8 rounded-full border-2 transition-all duration-200 ${
+                className={`w-8 h-8 rounded-full border-2 transition-all duration-200 ₹{
                   selectedColor === color 
                     ? 'border-gray-800 scale-110' 
                     : 'border-gray-300 hover:border-gray-500'
                 }`}
                 style={{ backgroundColor: color }}
-                title={`Color ${index + 1}`}
+                title={`Color ₹{index + 1}`}
               />
             ))}
           </div>
@@ -206,7 +206,7 @@ const ProductCard = ({
               <button
                 key={size}
                 onClick={() => setSelectedSize(size)}
-                className={`py-2 px-3 text-sm font-medium rounded-lg border-2 transition-all duration-200 ${
+                className={`py-2 px-3 text-sm font-medium rounded-lg border-2 transition-all duration-200 ₹{
                   selectedSize === size
                     ? 'border-orange-500 bg-orange-50 text-orange-600'
                     : 'border-gray-200 text-gray-600 hover:border-gray-300 hover:bg-gray-50'

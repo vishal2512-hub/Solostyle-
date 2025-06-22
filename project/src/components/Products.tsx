@@ -120,7 +120,7 @@ const Products = () => {
                   </h3>
                   <div className="flex items-center justify-between mb-4">
                     <span className="text-2xl font-bold text-orange-500">
-                      ${product.price}
+                      ₹{product.price}
                     </span>
                   </div>
                   

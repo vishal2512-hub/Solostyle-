@@ -86,12 +86,12 @@ const ProductModal: React.FC<ProductModalProps> = ({ product, isOpen, onClose })
                       {product.name}
                     </h1>
                     <p className="text-3xl font-bold text-orange-500">
-                      ${product.price}
+                      ₹{product.price}
                     </p>
                   </div>
 
                   <p className="text-slate-600 leading-relaxed">
-                    {product.description || `Experience premium comfort and style with the ${product.name}. Crafted with high-quality materials and designed for all-day wear, these shoes are perfect for any occasion.`}
+                    {product.description || `Experience premium comfort and style with the ₹{product.name}. Crafted with high-quality materials and designed for all-day wear, these shoes are perfect for any occasion.`}
                   </p>
 
                   {/* Size Selection */}
@@ -104,7 +104,7 @@ const ProductModal: React.FC<ProductModalProps> = ({ product, isOpen, onClose })
                         <button
                           key={size}
                           onClick={() => setSelectedSize(size)}
-                          className={`py-2 px-3 rounded-lg border-2 font-medium transition-all duration-200 ${
+                          className={`py-2 px-3 rounded-lg border-2 font-medium transition-all duration-200 ₹{
                             selectedSize === size
                               ? 'border-orange-500 bg-orange-50 text-orange-600'
                               : 'border-slate-200 hover:border-slate-300 text-slate-600'
@@ -146,7 +146,7 @@ const ProductModal: React.FC<ProductModalProps> = ({ product, isOpen, onClose })
                     className="w-full bg-orange-500 hover:bg-orange-600 text-white py-4 rounded-xl font-semibold text-lg transition-all duration-200 flex items-center justify-center space-x-2 shadow-lg hover:shadow-xl"
                   >
                     <ShoppingCart className="h-5 w-5" />
-                    <span>Add to Cart - ${(product.price * quantity).toFixed(2)}</span>
+                    <span>Add to Cart - ₹{(product.price * quantity).toFixed(2)}</span>
                   </button>
                 </div>
               </div>

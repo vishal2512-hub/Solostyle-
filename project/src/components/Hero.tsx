@@ -41,7 +41,7 @@ const Hero = () => {
             </div>
             <div className="absolute -bottom-4 -left-4 bg-white rounded-2xl p-4 shadow-xl">
               <div className="text-center">
-                <div className="text-2xl font-bold text-slate-800">$149</div>
+                <div className="text-2xl font-bold text-slate-800">₹149</div>
                 <div className="text-sm text-slate-600">Premium Quality</div>
               </div>
             </div>

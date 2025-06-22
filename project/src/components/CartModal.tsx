@@ -53,7 +53,7 @@ const CartModal: React.FC<CartModalProps> = ({ isOpen, onClose, onProceedToCheck
               {/* Cart Items */}
               <div className="space-y-4 mb-6">
                 {cartItems.map((item, index) => (
-                  <div key={`${item.product.id}-${item.size}-${index}`} className="flex items-center space-x-4 p-4 bg-slate-50 rounded-xl">
+                  <div key={`₹{item.product.id}-₹{item.size}-₹{index}`} className="flex items-center space-x-4 p-4 bg-slate-50 rounded-xl">
                     <img
                       src={item.product.image}
                       alt={item.product.name}
@@ -63,7 +63,7 @@ const CartModal: React.FC<CartModalProps> = ({ isOpen, onClose, onProceedToCheck
                     <div className="flex-1">
                       <h3 className="font-semibold text-slate-800">{item.product.name}</h3>
                       <p className="text-sm text-slate-600">Size: {item.size}</p>
-                      <p className="text-lg font-bold text-orange-500">${item.product.price}</p>
+                      <p className="text-lg font-bold text-orange-500">₹{item.product.price}</p>
                     </div>
 
                     <div className="flex items-center space-x-2">
@@ -99,7 +99,7 @@ const CartModal: React.FC<CartModalProps> = ({ isOpen, onClose, onProceedToCheck
                 <div className="flex justify-between items-center mb-6">
                   <span className="text-xl font-semibold text-slate-800">Total:</span>
                   <span className="text-2xl font-bold text-orange-500">
-                    ${getTotalPrice().toFixed(2)}
+                    ₹{getTotalPrice().toFixed(2)}
                   </span>
                 </div>
 

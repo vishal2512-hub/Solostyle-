@@ -31,13 +31,13 @@ const CheckoutModal: React.FC<CheckoutModalProps> = ({ isOpen, onClose }) => {
 
     if (!formData.email.trim()) {
       newErrors.email = 'Email is required';
-    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+₹/.test(formData.email)) {
       newErrors.email = 'Please enter a valid email address';
     }
 
     if (!formData.phone.trim()) {
       newErrors.phone = 'Phone number is required';
-    } else if (!/^\+?[\d\s\-\(\)]{10,}$/.test(formData.phone)) {
+    } else if (!/^\+?[\d\s\-\(\)]{10,}₹/.test(formData.phone)) {
       newErrors.phone = 'Please enter a valid phone number';
     }
 
@@ -65,7 +65,7 @@ const CheckoutModal: React.FC<CheckoutModalProps> = ({ isOpen, onClose }) => {
 
     // Create order
     const order: OrderData = {
-      id: `ORD-${Date.now()}`,
+      id: `ORD-₹{Date.now()}`,
       items: cartItems,
       customerInfo: formData,
       total: getTotalPrice(),
@@ -114,20 +114,20 @@ const CheckoutModal: React.FC<CheckoutModalProps> = ({ isOpen, onClose }) => {
                 <h3 className="text-lg font-semibold text-slate-800 mb-4">Order Summary</h3>
                 <div className="bg-slate-50 rounded-xl p-4 space-y-3">
                   {cartItems.map((item, index) => (
-                    <div key={`${item.product.id}-${item.size}-${index}`} className="flex justify-between items-center">
+                    <div key={`₹{item.product.id}-₹{item.size}-₹{index}`} className="flex justify-between items-center">
                       <div>
                         <span className="font-medium text-slate-800">{item.product.name}</span>
                         <span className="text-slate-600 ml-2">(Size: {item.size}, Qty: {item.quantity})</span>
                       </div>
                       <span className="font-semibold text-slate-800">
-                        ${(item.product.price * item.quantity).toFixed(2)}
+                        ₹{(item.product.price * item.quantity).toFixed(2)}
                       </span>
                     </div>
                   ))}
                   <div className="border-t pt-3 flex justify-between items-center">
                     <span className="text-lg font-bold text-slate-800">Total:</span>
                     <span className="text-xl font-bold text-orange-500">
-                      ${getTotalPrice().toFixed(2)}
+                      ₹{getTotalPrice().toFixed(2)}
                     </span>
                   </div>
                 </div>
@@ -146,7 +146,7 @@ const CheckoutModal: React.FC<CheckoutModalProps> = ({ isOpen, onClose }) => {
                       type="text"
                       value={formData.fullName}
                       onChange={(e) => handleInputChange('fullName', e.target.value)}
-                      className={`w-full px-4 py-3 rounded-lg border-2 transition-all duration-200 focus:outline-none ${
+                      className={`w-full px-4 py-3 rounded-lg border-2 transition-all duration-200 focus:outline-none ₹{
                         errors.fullName
                           ? 'border-red-300 focus:border-red-500'
                           : 'border-slate-200 focus:border-orange-500'
@@ -166,7 +166,7 @@ const CheckoutModal: React.FC<CheckoutModalProps> = ({ isOpen, onClose }) => {
                       type="email"
                       value={formData.email}
                       onChange={(e) => handleInputChange('email', e.target.value)}
-                      className={`w-full px-4 py-3 rounded-lg border-2 transition-all duration-200 focus:outline-none ${
+                      className={`w-full px-4 py-3 rounded-lg border-2 transition-all duration-200 focus:outline-none ₹{
                         errors.email
                           ? 'border-red-300 focus:border-red-500'
                           : 'border-slate-200 focus:border-orange-500'
@@ -187,7 +187,7 @@ const CheckoutModal: React.FC<CheckoutModalProps> = ({ isOpen, onClose }) => {
                     type="tel"
                     value={formData.phone}
                     onChange={(e) => handleInputChange('phone', e.target.value)}
-                    className={`w-full px-4 py-3 rounded-lg border-2 transition-all duration-200 focus:outline-none ${
+                    className={`w-full px-4 py-3 rounded-lg border-2 transition-all duration-200 focus:outline-none ₹{
                       errors.phone
                         ? 'border-red-300 focus:border-red-500'
                         : 'border-slate-200 focus:border-orange-500'
@@ -207,7 +207,7 @@ const CheckoutModal: React.FC<CheckoutModalProps> = ({ isOpen, onClose }) => {
                     value={formData.address}
                     onChange={(e) => handleInputChange('address', e.target.value)}
                     rows={3}
-                    className={`w-full px-4 py-3 rounded-lg border-2 transition-all duration-200 focus:outline-none resize-none ${
+                    className={`w-full px-4 py-3 rounded-lg border-2 transition-all duration-200 focus:outline-none resize-none ₹{
                       errors.address
                         ? 'border-red-300 focus:border-red-500'
                         : 'border-slate-200 focus:border-orange-500'
@@ -255,7 +255,7 @@ const CheckoutModal: React.FC<CheckoutModalProps> = ({ isOpen, onClose }) => {
                 <h3 className="font-semibold text-slate-800 mb-3">Order Details:</h3>
                 <div className="space-y-2 text-sm">
                   <p><span className="font-medium">Order ID:</span> {orderData.id}</p>
-                  <p><span className="font-medium">Total:</span> ${orderData.total.toFixed(2)}</p>
+                  <p><span className="font-medium">Total:</span> ₹{orderData.total.toFixed(2)}</p>
                   <p><span className="font-medium">Email:</span> {orderData.customerInfo.email}</p>
                   <p><span className="font-medium">Phone:</span> {orderData.customerInfo.phone}</p>
                 </div>
